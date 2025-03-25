@@ -1,0 +1,237 @@
+Patient ID,Patient Name,Age,Gender,Estimated Disease,Symptoms,Patient History,Date of Diagnosis,Audio Input,Summary,Timestamp,UUID,Date
+fd597391,** Shreya,** 20,** Female,** Pneumonia,**  Unspecified (Further details needed for a complete symptom list).,**  Pneumonia for two years.,2025-03-25,"Hi, I'm Shreya. I'm suffering from pneumonia from past two years. I'm 20 years old.","**Summary:**
+
+A 20-year-old female patient, Shreya, reports suffering from pneumonia for the past two years.
+
+
+**Patient Details:**
+
+* **Patient Name:** Shreya
+* **Age:** 20
+* **Gender:** Female
+* **Estimated Disease:** Pneumonia
+* **Symptoms:**  Unspecified (Further details needed for a complete symptom list).
+* **Patient History:**  Pneumonia for two years.
+* **Date of Diagnosis:** Not specified.
+
+
+**Key Medical Keywords:**
+
+* Pneumonia",2025-03-25 07:18:44,,
+892e97f3,** John,** 20,** Male,** Rocky Mountain Spotted Fever,**  Unspecified (only stated as suffering from the disease),** No details provided.,2025-03-25,"Hi, I'm John. I'm suffering from Rocky Mountain fever from past 2 days. I'm 20 years old.","**Summary:**
+
+A 20-year-old male, John, reports suffering from Rocky Mountain spotted fever for the past two days.  No further details on symptoms or history are provided.
+
+**Patient Details:**
+
+* **Patient Name:** John
+* **Age:** 20
+* **Gender:** Male
+* **Estimated Disease:** Rocky Mountain Spotted Fever
+* **Symptoms:**  Unspecified (only stated as suffering from the disease)
+* **Patient History:** No details provided.
+* **Date of Diagnosis:** Not specified; only states he's been suffering for two days.
+
+**Key Medical Keywords:** Rocky Mountain Spotted Fever, RMSF.",2025-03-25 07:20:07,,
+88c00639,** Sony,Unknown,Unknown,** Rabies,"**  Implied suffering from rabies (symptoms would include fever, headache, muscle weakness, etc., but aren't explicitly stated)",** Unknown.,2025-03-25,हुआ है मैं सोनी मैं रेबी से पुरक रहा हूं दूसरे दिन,"The provided text ""हुआ है मैं सोनी मैं रेबी से पुरक रहा हूं दूसरे दिन"" is in Hindi and translates roughly to: ""It happened, I am Sony, I am suffering from rabies, the second day.""  This is not a formal medical record and lacks crucial information.
+
+Therefore, a complete summary with patient details is impossible.  We can only infer the following:
+
+
+* **Patient Name:** Sony
+* **Estimated Disease:** Rabies
+* **Symptoms:**  Implied suffering from rabies (symptoms would include fever, headache, muscle weakness, etc., but aren't explicitly stated)
+* **Patient History:** Unknown.
+* **Age, Gender, Date of Diagnosis:** Unknown.
+
+
+**Key Medical Keywords:** Rabies
+
+
+This is insufficient data for a proper medical summary.  A proper medical record would contain significantly more detail.  The text provided is likely a fragment of a conversation or a very incomplete note.",2025-03-25 07:20:29,,
+155dca38,** Anthony,** 22,** Male,"** Dog bite (injury, not a disease per se)",** Dog bite,** None provided,2025-03-25,"Hi, I am Anthony. I am being bitten by the dog. I am 22 years old.","**Summary:**
+
+This is a brief, incomplete medical note.  A 22-year-old male, Anthony, reports being bitten by a dog.  No diagnosis is provided, nor is there information on the severity of the bite or any other patient history.
+
+**Patient Details:**
+
+* **Patient Name:** Anthony
+* **Age:** 22
+* **Gender:** Male
+* **Estimated Disease:** Dog bite (injury, not a disease per se)
+* **Symptoms:** Dog bite
+* **Patient History:** None provided
+* **Date of Diagnosis:** Not provided
+
+
+**Key Medical Keywords:**
+
+* Dog bite
+* Injury
+* Trauma
+* Rabies (potential concern, needs investigation)
+
+
+**Important Note:** This is a very limited account.  A proper medical evaluation is urgently needed to assess the severity of the bite, rule out rabies, and provide appropriate treatment (including tetanus prophylaxis and wound care).",2025-03-25 07:21:52,,
+c688c4d2,** John,** 20 years old,** Male,** Severe cold (likely an upper respiratory infection),"**  Severe cold (Unspecified - needs more detail, e.g., cough, runny nose, sore throat, etc.)",** Not specified.,2025-03-25,John is suffering from severe cold. He is a 20 years old.,"**Summary:**
+
+A 20-year-old male patient, John, is experiencing a severe cold.  Further details regarding the patient's history and specific symptoms are lacking.
+
+**Patient Details:**
+
+* **Patient Name:** John
+* **Age:** 20 years old
+* **Gender:** Male
+* **Estimated Disease:** Severe cold (likely an upper respiratory infection)
+* **Symptoms:**  Severe cold (Unspecified - needs more detail, e.g., cough, runny nose, sore throat, etc.)
+* **Patient History:** Not specified.
+* **Date of Diagnosis:** Not specified.
+
+
+**Key Medical Keywords:**
+
+* Severe cold
+* Upper respiratory infection (URI)
+* Common cold
+
+
+**Note:**  This summary is limited due to the brevity of the provided text.  A proper medical assessment requires significantly more information.",2025-03-25 07:27:12,,
+,** Anthony,** 20 years old,** Male (inferred),"** Headache (This is a symptom, not a disease diagnosis.  More information is needed for a proper diagnosis.)",** Headache,,,,,,d66eaf6a-a66f-4cb3-88b2-505b893d41fa,2025-03-25
+,** Anthony,** 20 years old,** Male (inferred),"** Headache (Note: This is a symptom, not a disease diagnosis.  More information is needed for a proper diagnosis.)",** Headache,,,,,,1fad5485-8684-46f6-98bc-48f043fc9404,2025-03-25
+,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,2025-03-25,ಮಿಕಿಸ್ತು ಆಸ್ಪಗ್ಡಲೆಯಿತ್ತು ಹದೆ.,"I cannot summarize the provided text and extract patient details because the text ""ಮಿಕಿಸ್ತು ಆಸ್ಪಗ್ಡಲೆಯಿತ್ತು ಹದೆ"" is in Kannada, and I do not have the ability to translate and interpret medical information from this language.  To get this information, you will need to have the text translated by a human translator fluent in Kannada and familiar with medical terminology.  Once translated, the information can be summarized and the patient details extracted.",2025-03-25 08:19:18,7fae7389-b603-4929-8539-1a3ec33fb2a6,
+,** Noah,** 20,** Male,** Migraine,** Severe migraine lasting over three days.,**  No specific patient history is provided beyond the current migraine episode.,2025-03-25,Noah suffering from severe migraine for over three days at the age of 20,"**Summary:** A 20-year-old male patient, Noah, is experiencing a severe migraine lasting over three days.
+
+**Patient Details:**
+
+* **Patient Name:** Noah
+* **Age:** 20
+* **Gender:** Male
+* **Estimated Disease:** Migraine
+* **Symptoms:** Severe migraine lasting over three days.
+* **Patient History:**  No specific patient history is provided beyond the current migraine episode.",2025-03-25 08:20:32,969ef73d-abb9-4965-a221-3bb766d1d458,
+,** Kevin,** Unknown,** Unknown,** Severe Migraine,** Severe migraine headaches,** Unknown,2025-03-25,So there is a patient called Kevin who has severe migraine.,"**Summary:**
+
+Kevin is a patient experiencing severe migraine headaches.  Further details regarding age, gender,  patient history, and specific symptoms beyond the severity are not provided.
+
+**Patient Details:**
+
+* **Patient Name:** Kevin
+* **Age:** Unknown
+* **Gender:** Unknown
+* **Estimated Disease:** Severe Migraine
+* **Symptoms:** Severe migraine headaches
+* **Patient History:** Unknown",2025-03-25 08:34:32,e0f7216e-2c58-434d-a87a-20c10101475e,
+,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,2025-03-25,ご視聴ありがとうございました。,"Please provide the medical text you wish me to summarize and extract patient details from.  The Japanese phrase ""ご視聴ありがとうございました"" (Go shōchō arigatō gozaimashita) simply means ""Thank you for watching,"" and is not part of the medical information.",2025-03-25 08:34:40,465a767c-3bee-4636-ae88-18f905accc2a,
+,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,2025-03-25,ご視聴ありがとうございました。,"Please provide the medical text you wish me to summarize and extract patient details from.  The Japanese phrase ""ご視聴ありがとうございました"" (Go shōchō arigatō gozaimashita) simply means ""Thank you for watching,"" and is not part of the medical information.",2025-03-25 08:34:41,9ff39ef3-733a-45f6-bff1-4e6a228bf5cc,
+,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,2025-03-25,.,Please provide the medical text you wish me to summarize and extract patient details from.  I need the text to be able to complete your request.,2025-03-25 08:35:01,98adae40-d451-446c-b055-a2fd00cb5464,
+,Unknown,Unknown,Unknown,Unknown,Unknown,Unknown,2025-03-25,എന്ന്ദെ?,Please provide the medical text you wish me to summarize and extract patient details from.  I need the text to be able to complete your request.,2025-03-25 08:35:04,e02b755e-8912-40c9-8e0a-e223e839f41f,
+,** Kevin,** 20,** Male,** Severe heart disease,**  Not specified.,** Not specified.,2025-03-25,So there is a patient called Kevin who is 20 years old and has severe heart disease.,"**Summary:**
+
+A 20-year-old male patient, Kevin, presents with severe heart disease.  Further details regarding symptoms and patient history are not provided.
+
+
+**Patient Details:**
+
+* **Patient Name:** Kevin
+* **Age:** 20
+* **Gender:** Male
+* **Estimated Disease:** Severe heart disease
+* **Symptoms:**  Not specified.
+* **Patient History:** Not specified.",2025-03-25 08:36:11,2ed67b3e-b1a0-451e-8e57-6c06a1f36967,
+,** Kevin,** 20 years old,** Male,** Migraine,** Severe migraine,** None provided beyond the current migraine.,2025-03-25,"Kevin, 20 years old, suffering from severe migraine from 3 days.","**Summary:** A 20-year-old male patient is experiencing a severe migraine that has lasted for three days.
+
+
+**Patient Details:**
+
+* **Patient Name:** Kevin
+* **Age:** 20 years old
+* **Gender:** Male
+* **Estimated Disease:** Migraine
+* **Symptoms:** Severe migraine
+* **Patient History:** None provided beyond the current migraine.",2025-03-25 08:37:15,0ff4741b-f5dc-4384-9441-5f6eb1a2081e,
+,** Kevin,** 20 years old,** Male,** Migraine,** Migraine headaches,**  None specified beyond the current migraine episode.,2025-03-25,"Kevin, 20 years old, suffering from migraine from past 3 days.","**Summary:** A 20-year-old male patient is experiencing migraine headaches for the past three days.
+
+**Patient Details:**
+
+* **Patient Name:** Kevin
+* **Age:** 20 years old
+* **Gender:** Male
+* **Estimated Disease:** Migraine
+* **Symptoms:** Migraine headaches
+* **Patient History:**  None specified beyond the current migraine episode.",2025-03-25 08:39:22,6da9cd95-bbad-40aa-9eb7-e043cea2698c,
+,** Kevin,** 20 years old,** Male,** Migraine,** Severe migraine,**  None provided.,2025-03-25,"Kevin, 20 years old, suffering from severe migraine.","**Summary:** A 20-year-old male patient is suffering from severe migraines.  No further details on patient history or specific symptoms beyond the migraine are provided.
+
+
+**Patient Details:**
+
+* **Patient Name:** Kevin
+* **Age:** 20 years old
+* **Gender:** Male
+* **Estimated Disease:** Migraine
+* **Symptoms:** Severe migraine
+* **Patient History:**  None provided.",2025-03-25 08:41:40,1cd73a7c-1826-4eb2-9dce-b8ad95e2cc97,
+,** Rahul,** 20 years,**  Cannot be determined from the given text.,"** Severe migraine (This is an inference, not explicitly stated as a diagnosis).",** Severe migraine (The nature and severity of the migraine are not detailed).,** No patient history is provided.,2025-03-25,राहूल सफरिंग फ्रॉम सिवियर माइग्रेंट 20 यूज़ आफ एज,"The provided text is insufficient to create a complete medical summary.  It only states:
+
+* **Patient Name:** Rahul
+* **Age:** 20 years
+* **Gender:**  Cannot be determined from the given text.
+* **Estimated Disease:** Severe migraine (This is an inference, not explicitly stated as a diagnosis).
+* **Symptoms:** Severe migraine (The nature and severity of the migraine are not detailed).
+* **Patient History:** No patient history is provided.
+
+
+The text needs significant expansion to provide a useful medical summary.  The phrase ""राहूल सफरिंग फ्रॉम सिवियर माइग्रेंट 20 यूज़ आफ एज"" is a fragmented and poorly written sentence.  A proper medical record would contain much more detail.",2025-03-25 08:48:26,86ca8b97-5107-43b2-b9ed-2475c7aaaca3,
+,** Raju,** 12 years,** Male,** Heart attack,** Not specified,** Not specified,2025-03-25,"Raju, 12 years, heart attack.","**Summary:** A 12-year-old male, Raju, experienced a heart attack.  Further details regarding symptoms and patient history are absent from the provided text.
+
+
+**Patient Details:**
+
+* **Patient Name:** Raju
+* **Age:** 12 years
+* **Gender:** Male
+* **Estimated Disease:** Heart attack
+* **Symptoms:** Not specified
+* **Patient History:** Not specified",2025-03-25 08:48:43,17237d20-17a5-4433-8108-ff8f395efe19,
+,** Kevin,** 17 years,** Male,**  Unknown (requires further investigation),** Body pain,** None provided.,2025-03-25,"Kevin, 17 years, body pain.","**Summary:**
+
+A 17-year-old male patient presents with body pain.  Further information is needed for a diagnosis.
+
+
+**Patient Details:**
+
+* **Patient Name:** Kevin
+* **Age:** 17 years
+* **Gender:** Male
+* **Estimated Disease:**  Unknown (requires further investigation)
+* **Symptoms:** Body pain
+* **Patient History:** None provided.",2025-03-25 08:49:01,819bf3f9-6466-423d-94c0-931fc40efc53,
+,** Anthony,** 16 years,** Male,"**  Dog bite (This could lead to rabies or infection, but further information is needed for a definitive diagnosis.)",** Dog bite wound.,**  None provided beyond the dog bite incident.,2025-03-25,"Anthony, 16 years, bitten by a dog.","**Summary:** A 16-year-old male patient was bitten by a dog.
+
+**Patient Details:**
+
+* **Patient Name:** Anthony
+* **Age:** 16 years
+* **Gender:** Male
+* **Estimated Disease:**  Dog bite (This could lead to rabies or infection, but further information is needed for a definitive diagnosis.)
+* **Symptoms:** Dog bite wound.
+* **Patient History:**  None provided beyond the dog bite incident.",2025-03-25 08:49:17,1efb9078-c6d2-47ea-969a-4b89bd75a6be,
+,** Joseph,** 16 years,** Male,** Severe cold,"**  Severe cold (This needs further specification to be clinically useful.  Symptoms like cough, fever, runny nose, etc., would provide more detail.)",** No patient history is provided in the given text.,2025-03-25,"Joseph, 16 years, suffering from severe cold.","**Summary:** A 16-year-old male patient is experiencing a severe cold.
+
+**Patient Details:**
+
+* **Patient Name:** Joseph
+* **Age:** 16 years
+* **Gender:** Male
+* **Estimated Disease:** Severe cold
+* **Symptoms:**  Severe cold (This needs further specification to be clinically useful.  Symptoms like cough, fever, runny nose, etc., would provide more detail.)
+* **Patient History:** No patient history is provided in the given text.",2025-03-25 08:50:41,10bc5e50-3869-455a-994f-35221b477970,
+,** Rony,** 17 years,** Not specified,"** Unspecified (Headache is a symptom, not a disease)",** Headache,**  No details provided.,2025-03-25,"Rony, 17 years suffering from headache.","**Summary:** A 17-year-old patient, Rony, presents with headaches.  Further details regarding the nature, frequency, and severity of the headaches, as well as the patient's history, are lacking.  No specific disease is estimated.
+
+**Patient Details:**
+
+* **Patient Name:** Rony
+* **Age:** 17 years
+* **Gender:** Not specified
+* **Estimated Disease:** Unspecified (Headache is a symptom, not a disease)
+* **Symptoms:** Headache
+* **Patient History:**  No details provided.",2025-03-25 08:53:58,6fe39dd8-1642-41e6-8f02-3af29db0f4e7,
