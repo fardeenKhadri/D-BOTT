@@ -7,4 +7,3 @@ groq
 pandas
 numpy
 datetime
-uuid

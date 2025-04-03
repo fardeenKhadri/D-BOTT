@@ -19,8 +19,8 @@ app = Flask(__name__)
 CORS(app)
 
 # API Keys
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+GROQ_API_KEY= "REDACTED_GROQ_KEY"
+GEMINI_API_KEY= "REDACTED_GEMINI_KEY"
 
 # Configure Gemini AI
 genai.configure(api_key=GEMINI_API_KEY)
@@ -194,15 +194,15 @@ def generate_response(system_prompt, user_question, df):
 
     # If no relevant data is found, just use the last 5 records
     if relevant_data.empty:
-        relevant_data = df.tail(5)
+        relevant_data = df.tail(3)
 
     data_context = relevant_data.to_string(index=False)  # Reduce dataset size
 
     full_prompt = f"""
     {system_prompt}
 
-    Relevant Patient Data:
-    {data_context}
+    Relevant Patient Info:{relevant_data[['Patient Name', 'Age', 'Estimated Disease', 'Symptoms']].to_string(index=False)}
+
 
     Question: {user_question}
     """
