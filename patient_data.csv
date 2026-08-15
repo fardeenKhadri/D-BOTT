@@ -1,12 +1,2 @@
-Patient ID,Patient Name,Age,Gender,Estimated Disease,UUID,Audio Input,Summary,Symptoms,Patient History,Date of Diagnosis,Timestamp
-,** Nicholas,** 16 years,** Male,** Common cold,b560d6e1-5d8d-4354-8c0e-4aa673f32888,"Nicholas, 16 years, suffering from cold.","**Summary:** A 16-year-old male patient is suffering from a cold.  No further details on patient history or specific symptoms beyond a general cold are provided.
-
-
-**Patient Details:**
-
-* **Patient Name:** Nicholas
-* **Age:** 16 years
-* **Gender:** Male
-* **Estimated Disease:** Common cold
-* **Symptoms:**  Cold symptoms (unspecified)
-* **Patient History:** None provided",**  Cold symptoms (unspecified),** None provided,2025-04-03,2025-04-03 11:46:35
+UUID,Audio Input,Summary,Patient Name,Age,Gender,Estimated Disease,Symptoms,Patient History,Date of Diagnosis,Timestamp
+b560d6e1-5d8d-4354-8c0e-4aa673f32888,"Nicholas, 16 years old, reporting cold symptoms.",A 16-year-old male patient presents with symptoms of a common cold. No significant medical history reported.,Nicholas,16 years,Male,Common cold,Cold symptoms (unspecified),None provided,2025-04-03,2025-04-03 11:46:35

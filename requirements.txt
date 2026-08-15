@@ -1,9 +1,8 @@
 flask
 flask-cors
 pyaudio
-wave
-google-generativeai
+google-genai
 groq
 pandas
-numpy
-datetime
+python-dotenv
+gunicorn

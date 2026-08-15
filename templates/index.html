@@ -3,175 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D-BOTT at your service</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <style>
-        body {
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-            color: #000;
-            transition: background 0.3s, color 0.3s;
-        }
-        .container {
-            max-width: 900px;
-            margin: 30px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: background 0.3s, color 0.3s;
-        }
-        .info-box {
-            background: #e8f5e9;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 10px;
-            font-size: 16px;
-            transition: background 0.3s;
-        }
-        #chatbox {
-            background: #fff;
-            height: 300px;
-            overflow-y: auto;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            transition: background 0.3s;
-        }
-        .user-msg {
-            background: #d1e7dd;
-            padding: 8px;
-            border-radius: 8px;
-            margin: 5px 0;
-            text-align: right;
-        }
-        .bot-msg {
-            background: #bbdefb;
-            padding: 8px;
-            border-radius: 8px;
-            margin: 5px 0;
-            text-align: left;
-        }
-        #textInput {
-            width: 100%;
-            padding: 10px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            transition: background 0.3s, color 0.3s;
-        }
-        .btn-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
+    <title>D-BOT — Doctor's Bot for Operational Trackers</title>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='care.png') }}">
 
-        /* Dark Mode Styles */
-        .dark-mode {
-            background-color: #121212;
-            color: #fff;
-        }
-        .dark-mode .container {
-            background-color: #1e1e1e;
-        }
-        .dark-mode .info-box {
-            background: #333;
-        }
-        .dark-mode #chatbox {
-            background: #222;
-            border: 1px solid #444;
-        }
-        .dark-mode #textInput {
-            background: #333;
-            color: #fff;
-            border: 1px solid #555;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-    <div class="container text-center">
-        <h2 class="mb-4">D-BOT at your service 🏥🤖</h2>
-
-        <!-- Toggle Dark Mode -->
-        <button class="btn btn-dark mb-3" onclick="toggleDarkMode()">🌙 Toggle Dark Mode</button>
-
-        <!-- User Profile & Controls -->
-        <div class="d-flex justify-content-between">
-            <button class="btn btn-success btn-lg" onclick="recordPatientData()">🎙 Add Patient Data</button>
-            <button class="btn btn-primary btn-lg" onclick="recordChat()">🎤 Ask D-BOT</button>
+<header class="app-header">
+    <div class="container d-flex align-items-center justify-content-between">
+        <div class="d-flex align-items-center gap-2">
+            <span class="brand-icon"><img src="{{ url_for('static', filename='care.png') }}" alt="D-BOT logo"></span>
+            <div>
+                <h1 class="h4 mb-0">D-BOT</h1>
+                <p class="mb-0 brand-tagline">Doctor's Bot for Operational Trackers</p>
+            </div>
         </div>
-
-        <!-- Patient Data Display -->
-        <div id="patientData" class="info-box mt-3">
-            <strong>Saved Patient Data will appear here...</strong>
-        </div>
-
-        <!-- Chat Box -->
-        <div id="chatbox" class="mt-3"></div>
-
-        <!-- Chat Input -->
-        <input type="text" id="textInput" placeholder="Type a message..." onkeypress="handleKeyPress(event)">
-        <button class="btn btn-info mt-2" onclick="sendMessage()">Send</button>
-
-        <!-- Chat Log Display -->
-        <div id="chatlog" class="info-box mt-3">
-            <strong>Chat Log:</strong>
-        </div>
+        <button class="btn btn-sm btn-outline-secondary" id="themeToggle" onclick="toggleDarkMode()">
+            <i class="bi bi-moon-stars"></i> <span>Dark Mode</span>
+        </button>
     </div>
+</header>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle("dark-mode");
+<main class="container mt-4">
+    <div class="row g-4">
+
+        <!-- Patient recording card -->
+        <div class="col-lg-5">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h2 class="h5 card-title"><i class="bi bi-mic me-2"></i>Add Patient Data</h2>
+                    <p class="text-muted small mb-3">
+                        Speak a patient consultation. D-BOT transcribes it, extracts the medical
+                        details, and saves them to the dataset.
+                    </p>
+                    <button class="btn btn-success w-100" id="recordBtn" onclick="recordPatientData()">
+                        <i class="bi bi-mic-fill me-1"></i> Start Recording
+                    </button>
+
+                    <div id="patientData" class="info-box mt-3">
+                        <strong>Saved patient data will appear here.</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat card -->
+        <div class="col-lg-7">
+            <div class="card shadow-sm h-100">
+                <div class="card-body d-flex flex-column">
+                    <h2 class="h5 card-title"><i class="bi bi-chat-dots me-2"></i>Ask D-BOT</h2>
+
+                    <div id="chatbox" class="chatbox mb-3" aria-live="polite">
+                        <p class="text-muted small">Ask about the stored patient records using voice or text.</p>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <input type="text"
+                               id="textInput"
+                               class="form-control"
+                               placeholder="Type a question..."
+                               autocomplete="off"
+                               onkeypress="handleKeyPress(event)">
+                        <button class="btn btn-primary" id="sendBtn" onclick="sendMessage()">
+                            <i class="bi bi-send me-1"></i> Send
+                        </button>
+                    </div>
+
+                    <button class="btn btn-outline-primary mt-2" id="voiceBtn" onclick="recordChat()">
+                        <i class="bi bi-mic me-1"></i> Ask with Voice
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<footer class="app-footer">
+    <div class="container text-center small text-muted">
+        D-BOT &middot; Demonstration tool &middot; Not a substitute for professional medical advice.
+    </div>
+</footer>
+
+<script>
+    "use strict";
+
+    const patientDataBox = document.getElementById("patientData");
+    const chatbox = document.getElementById("chatbox");
+    const textInput = document.getElementById("textInput");
+    const recordBtn = document.getElementById("recordBtn");
+    const voiceBtn = document.getElementById("voiceBtn");
+    const sendBtn = document.getElementById("sendBtn");
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute("data-bs-theme", theme);
+        const label = document.querySelector("#themeToggle span");
+        label.textContent = theme === "dark" ? "Light Mode" : "Dark Mode";
+        localStorage.setItem("dbot-theme", theme);
+    }
+
+    function toggleDarkMode() {
+        const current = document.documentElement.getAttribute("data-bs-theme") === "dark" ? "light" : "dark";
+        setTheme(current);
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+        setTheme(localStorage.getItem("dbot-theme") || "light");
+    });
+
+    function setBusy(button, busy) {
+        button.disabled = busy;
+        const icon = button.querySelector("i");
+        if (busy) {
+            button.dataset.iconClass = icon.className;
+            icon.className = "bi bi-hourglass-split";
+        } else if (button.dataset.iconClass) {
+            icon.className = button.dataset.iconClass;
         }
+    }
 
-        function recordPatientData() {
-            document.getElementById("patientData").innerHTML = "🎤 Recording Patient Data...";
-            fetch('/record_patient', { method: 'POST' })
+    function renderPatientData(data) {
+        patientDataBox.innerHTML = `
+            <strong><i class="bi bi-check-circle-fill text-success me-1"></i>Saved record</strong><br>
+            <b>Name:</b> ${data.name} <br>
+            <b>Age:</b> ${data.age} <br>
+            <b>Gender:</b> ${data.gender} <br>
+            <b>Disease:</b> ${data.disease} <br>
+            <b>Symptoms:</b> ${data.symptoms}`;
+    }
+
+    function appendChat(message, role) {
+        const bubble = document.createElement("div");
+        bubble.className = role === "user" ? "user-msg" : "bot-msg";
+        bubble.textContent = message;
+        chatbox.appendChild(bubble);
+        chatbox.scrollTop = chatbox.scrollHeight;
+
+        const emptyState = chatbox.querySelector(".text-muted");
+        if (emptyState && emptyState.parentElement === chatbox) {
+            chatbox.removeChild(emptyState);
+        }
+    }
+
+    function handleError(err, box) {
+        console.error(err);
+        if (box) box.innerHTML = `<span class="text-danger"><i class="bi bi-exclamation-triangle me-1"></i>Something went wrong. Please try again.</span>`;
+    }
+
+    function recordPatientData() {
+        patientDataBox.innerHTML = '<span class="text-muted"><i class="bi bi-mic-fill me-1"></i>Recording patient data... please speak now.</span>';
+        setBusy(recordBtn, true);
+
+        fetch("/record_patient", { method: "POST" })
             .then(response => response.json())
             .then(data => {
-                document.getElementById("patientData").innerHTML = `<strong>Saved Data:</strong><br> 
-                    <b>Name:</b> ${data.name} <br> <b>Age:</b> ${data.age} <br> 
-                    <b>Gender:</b> ${data.gender} <br> <b>Disease:</b> ${data.disease} <br> 
-                    <b>Symptoms:</b> ${data.symptoms}`;
-            });
-        }
-
-        function recordChat() {
-            document.getElementById("chatbox").innerHTML += `<div class='user-msg'>🎙 Recording...</div>`;
-            fetch('/record_chat', { method: 'POST' })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("chatbox").innerHTML += `<div class='user-msg'>🗣 ${data.question}</div>`;
-                document.getElementById("chatbox").innerHTML += `<div class='bot-msg'>🤖 ${data.answer}</div>`;
-                document.getElementById("chatlog").innerHTML += `<br><b>You:</b> ${data.question} <br><b>Bot:</b> ${data.answer}`;
-            });
-        }
-
-        function sendMessage() {
-            let input = document.getElementById("textInput").value;
-            if (input.trim() === "") return;
-
-            document.getElementById("chatbox").innerHTML += `<div class='user-msg'>🗣 ${input}</div>`;
-            document.getElementById("textInput").value = "";
-
-            fetch('/chat_text', {
-                method: 'POST',
-                body: JSON.stringify({ message: input }),
-                headers: { 'Content-Type': 'application/json' }
+                if (data.error) throw new Error(data.error);
+                renderPatientData(data);
             })
+            .catch(err => handleError(err, patientDataBox))
+            .finally(() => setBusy(recordBtn, false));
+    }
+
+    function recordChat() {
+        appendChat("Listening... please speak now.", "user");
+        setBusy(voiceBtn, true);
+
+        fetch("/record_chat", { method: "POST" })
             .then(response => response.json())
             .then(data => {
-                document.getElementById("chatbox").innerHTML += `<div class='bot-msg'>🤖 ${data.answer}</div>`;
-                document.getElementById("chatlog").innerHTML += `<br><b>You:</b> ${input} <br><b>Bot:</b> ${data.answer}`;
-            });
-        }
+                if (data.error) throw new Error(data.error);
+                chatbox.removeChild(chatbox.lastChild);
+                appendChat(data.question, "user");
+                appendChat(data.answer, "bot");
+            })
+            .catch(err => handleError(err, chatbox))
+            .finally(() => setBusy(voiceBtn, false));
+    }
 
-        function handleKeyPress(event) {
-            if (event.key === "Enter") sendMessage();
-        }
-    </script>
+    function sendMessage() {
+        const input = textInput.value.trim();
+        if (input === "") return;
+
+        appendChat(input, "user");
+        textInput.value = "";
+        setBusy(sendBtn, true);
+
+        fetch("/chat_text", {
+            method: "POST",
+            body: JSON.stringify({ message: input }),
+            headers: { "Content-Type": "application/json" }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) throw new Error(data.error);
+                appendChat(data.answer, "bot");
+            })
+            .catch(err => handleError(err, chatbox))
+            .finally(() => setBusy(sendBtn, false));
+    }
+
+    function handleKeyPress(event) {
+        if (event.key === "Enter") sendMessage();
+    }
+</script>
 
 </body>
 </html>

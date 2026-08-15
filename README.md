@@ -1,96 +1,136 @@
-# 🏥 D-BOT: Doctor’s Bot for Operational Trackers 🤖  
+# D-BOT — Doctor's Bot for Operational Trackers
 
-**D-BOT** is an **AI-powered medical assistant** designed to help doctors and healthcare professionals **record, analyze, and retrieve patient data effortlessly**. It integrates **speech-to-text**, **AI-driven medical summarization**, and a **smart chatbot** to provide real-time assistance for medical professionals.  
+AI-powered medical assistant that records patient consultations, extracts
+structured patient details with AI, stores them for future reference, and
+answers clinical questions about the stored records — all from a clean web
+interface.
 
----
+## Features
 
-## 📌 Features  
+- **Voice-to-text patient recording** — captures a consultation from the
+  microphone and transcribes it with Whisper.
+- **AI medical summarization** — Gemini extracts patient name, age, gender,
+  estimated disease, symptoms, and history.
+- **CSV data storage** — every consultation is persisted with a unique ID and
+  timestamp for future retrieval.
+- **Smart clinical chat** — ask questions in text or by voice; relevant
+  patient records are used as context.
+- **Dark-mode interface** — responsive Bootstrap-based UI.
 
-✅ **🎤 Voice-to-Text Patient Recording** – AI extracts key medical details from speech  
-✅ **📄 AI-Powered Summarization** – Automatically summarizes patient name, age, symptoms, diagnosis, etc.  
-✅ **📊 CSV Data Storage** – Securely stores patient records for future use  
-✅ **💬 AI Chatbot Mode** – Retrieve patient data & get insights using AI  
-✅ **🌙 Dark Mode UI** – User-friendly Bootstrap-based interface  
+## Architecture
 
----
+```
+Browser / Flask UI                    Server (Flask / PyAudio)
+┌──────────────────────┐   /record_patient  ┌──────────────────────────────────────┐
+│  index.html          │ ─────────────────▶ │ record_audio  → PyAudio (WAV)        │
+│  (jQuery + Bootstrap)│                   │ transcribe    → Groq Whisper          │
+│                      │ ◀───────────────── │ summarize     → Google Gemini         │
+└──────────────────────┘    JSON result     │ persist       → patient_data.csv      │
+                                            └──────────────────────────────────────┘
+```
 
-## 🚀 Installation  
+| Step | Responsibility | Tool |
+|------|----------------|------|
+| Audio capture | Record microphone to WAV | PyAudio |
+| Speech-to-text | Transcribe the WAV | Groq Whisper |
+| Data extraction | Summarize + extract patient fields | Google Gemini |
+| Chat reasoning | Answer questions on patient data | Groq Llama 3.3 |
+| Persistence | Append records to CSV | pandas |
 
-### **1️⃣ Clone the Repository**  
+## Project structure
+
+```
+D-BOT/
+├── app.py              # Flask application (routes + business logic)
+├── config.py           # Centralised configuration (reads .env)
+├── requirements.txt    # Python dependencies
+├── .env.example        # Template for environment variables
+├── .env                # Local secrets (git-ignored, never committed)
+├── templates/
+│   └── index.html      # Web interface
+├── static/
+│   ├── style.css       # Interface styles
+│   └── care.png        # Brand logo / favicon
+└── patient_data.csv    # Patient dataset (schema created automatically)
+```
+
+## Getting started
+
+### Prerequisites
+
+- Python 3.9+
+- A working microphone on the machine running the server
+- API keys from [Groq](https://groq.com/) and [Google AI Studio](https://ai.google.dev/)
+
+### Installation
+
 ```sh
 git clone https://github.com/fardeenKhadri/D-BOTT.git
 cd D-BOTT
-```
 
-### **2️⃣ Install Dependencies**  
-```sh
+python -m venv .venv
+source .venv/bin/activate      # Windows: .venv\Scripts\activate
+
 pip install -r requirements.txt
 ```
 
-### **3️⃣ Set Up API Keys**  
-- Get API Keys from:  
-  - [Google Gemini AI](https://ai.google.dev/)  
-  - [Groq Whisper & Llama](https://groq.com/)  
+### Configuration
 
-- Open **`app.py`** and replace the placeholders with your API keys:  
-```python
-GROQ_API_KEY = "your_groq_api_key"
-GEMINI_API_KEY = "your_gemini_api_key"
+Copy the `.env.example` template and add your API keys:
+
+```sh
+cp .env.example .env
 ```
 
----
+```dotenv
+GROQ_API_KEY=your_groq_api_key
+GEMINI_API_KEY=your_gemini_api_key
+```
 
-## 🎬 Running D-BOT  
+Optional variables are listed in `.env.example`. The `.env` file is
+git-ignored and must never be committed.
 
-Start the Flask server:  
+### Running
+
 ```sh
 python app.py
 ```
 
-Then, open your browser and visit:  
-```
-http://127.0.0.1:5000
-```
+Open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
 
----
+For production, use a WSGI server:
 
-## 🖥 Web Interface  
-
-1️⃣ **Click "Add Patient Data"** → Speak, and AI will extract patient details.  
-2️⃣ **Click "Ask AI"** → Ask D-BOT questions about stored patient records.  
-3️⃣ **Type & Chat** → Directly type a query and get instant medical insights.  
-
----
-
-## 📂 Project Structure  
-
-```
-📁 D-BOTT
-│── app.py             # Flask Backend
-│── templates/
-│   ├── index.html     # Web UI
-│── static/
-│   ├── style.css      # Styling
-│── patient_data.csv   # Stores patient history
-│── requirements.txt   # Python Dependencies
-│── README.md          # Documentation
+```sh
+gunicorn app:app
 ```
 
----
+## Usage
 
-## 🛠 Technologies Used  
+1. **Add patient data** — click the button, speak into the microphone, and the AI
+   extracts the patient details into the dataset.
+2. **Ask D-BOT (voice)** — click the mic button and ask a question out loud.
+3. **Ask D-BOT (text)** — type a question in the chat box and hit send.
 
-- **Flask** – Web framework  
-- **pyaudio & wave** – Audio recording  
-- **Google Gemini AI** – Medical text summarization  
-- **Groq Whisper** – Speech-to-text AI  
-- **Groq Llama 3** – AI Chatbot for medical insights  
-- **Bootstrap & JavaScript** – Frontend UI  
+## API reference
 
----
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| `GET`  | `/` | Serve the web interface |
+| `GET`  | `/health` | Service health check |
+| `POST` | `/record_patient` | Record, transcribe, summarize, and store a patient consultation |
+| `POST` | `/record_chat` | Record a spoken question and return an answer |
+| `POST` | `/chat_text` | Submit a JSON `{"message": "..."}` and return an answer |
 
-## 📞 Support  
+## Security note
 
-For issues, create a **GitHub issue** or contact **skkstew@gmail.com**.  
+This project is a demonstration and is **not** HIPAA-compliant. Patient data
+is stored in plain CSV, and the server records audio via its local microphone.
+Rotate the API keys in `.env` regularly, and never commit the `.env` file.
 
-🚀 **D-BOT is here to assist doctors in tracking patient records smarter and faster!** 🏥🎤🤖  
+## Technologies
+
+- **Backend** — Flask
+- **Audio** — PyAudio, Wave
+- **AI** — Google Gemini, Groq (Whisper, Llama 3.3)
+- **Data** — pandas
+- **Frontend** — Bootstrap, jQuery

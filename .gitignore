@@ -1,1 +1,18 @@
-/.env
+# Environment & secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Interface artifacts
+*.wav
+*.m4a
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
