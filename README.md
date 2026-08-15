@@ -51,7 +51,7 @@ D-BOT/
 ├── static/
 │   ├── style.css       # Interface styles
 │   └── care.png        # Brand logo / favicon
-└── patient_data.csv    # Patient dataset (schema created automatically)
+└── patient_data.csv    # Local dataset (created at runtime, git-ignored)
 ```
 
 ## Getting started

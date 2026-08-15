@@ -12,6 +12,9 @@ venv/
 *.wav
 *.m4a
 
+# Patient data (regenerated at runtime, never commit real records)
+patient_data.csv
+
 # OS / editor
 .DS_Store
 .idea/
