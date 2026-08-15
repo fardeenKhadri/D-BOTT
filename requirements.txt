@@ -1,8 +1,0 @@
-flask
-flask-cors
-pyaudio
-google-genai
-groq
-pandas
-python-dotenv
-gunicorn

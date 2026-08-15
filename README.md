@@ -43,7 +43,9 @@ Browser / Flask UI                    Server (Flask / PyAudio)
 D-BOT/
 ├── app.py              # Flask application (routes + business logic)
 ├── config.py           # Centralised configuration (reads .env)
-├── requirements.txt    # Python dependencies
+├── pyproject.toml      # Project metadata + dependencies (uv)
+├── uv.lock             # Exact, reproducible dependency lock (uv)
+├── .python-version     # Pinned interpreter version (Python 3.12)
 ├── .env.example        # Template for environment variables
 ├── .env                # Local secrets (git-ignored, never committed)
 ├── templates/
@@ -58,7 +60,8 @@ D-BOT/
 
 ### Prerequisites
 
-- Python 3.9+
+- Python 3.12+ (pinned via `.python-version`)
+- [uv](https://docs.astral.sh/uv/) — fast Python package and project manager
 - A working microphone on the machine running the server
 - API keys from [Groq](https://groq.com/) and [Google AI Studio](https://ai.google.dev/)
 
@@ -68,11 +71,11 @@ D-BOT/
 git clone https://github.com/fardeenKhadri/D-BOTT.git
 cd D-BOTT
 
-python -m venv .venv
-source .venv/bin/activate      # Windows: .venv\Scripts\activate
-
-pip install -r requirements.txt
+uv sync
 ```
+
+`uv sync` creates the virtual environment and installs the exact versions
+recorded in `uv.lock`.
 
 ### Configuration
 
@@ -93,7 +96,7 @@ git-ignored and must never be committed.
 ### Running
 
 ```sh
-python app.py
+uv run python app.py
 ```
 
 Open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
@@ -101,7 +104,7 @@ Open [http://127.0.0.1:5000](http://127.0.0.1:5000) in your browser.
 For production, use a WSGI server:
 
 ```sh
-gunicorn app:app
+uv run gunicorn app:app
 ```
 
 ## Usage
@@ -133,4 +136,5 @@ Rotate the API keys in `.env` regularly, and never commit the `.env` file.
 - **Audio** — PyAudio, Wave
 - **AI** — Google Gemini, Groq (Whisper, Llama 3.3)
 - **Data** — pandas
+- **Packaging** — uv
 - **Frontend** — Bootstrap, jQuery
